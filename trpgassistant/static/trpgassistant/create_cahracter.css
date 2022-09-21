@@ -1,0 +1,188 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.canvas {
+    background: url("img/background.jpg");
+    background-size: 100% 100%;
+}
+
+.canvas .title {
+    font-size: 26px;
+    font-family: Lucida Handwriting;
+    text-align: center;
+    padding: 20px;
+}
+
+.canvas .title .button {
+    text-align: right;
+}
+
+.canvas .title #id_random_button {
+    background: #BEA1A5;
+    border-color: #BEA1A5;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.canvas .form {
+    width: 90%;
+    margin: auto;
+}
+
+.canvas .form .input {
+    background: #BEA1A5;
+    border-color: #BEA1A5;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.canvas .form .form-title {
+    font-size: 20px;
+    font-family: Papyrus;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.canvas .form #id_personal_information_part {
+    border: 10px double orange;
+    border-image: url("img/frame.png") 27 round;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.canvas .form #id_personal_information_part table {
+    margin: auto;
+}
+
+.canvas .form #id_personal_information_part td {
+    text-align: right;
+}
+
+.canvas .form #id_personal_information_part td label {
+    padding-right: 5px;
+}
+
+.canvas .form #id_personal_information_part input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    background: none;
+    border-bottom-color: black;
+    margin-right: 50px;
+}
+
+.canvas .form #id_characteristics_part {
+    border: 10px double orange;
+    border-image: url("img/frame.png") 27 round;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.canvas .form #id_characteristics_part table {
+    margin: auto;
+}
+
+.canvas .form #id_characteristics_part input {
+    border-radius: 5px;
+    width: 150px;
+    margin-right: 20px;
+    height: 20px;
+    border-width: 1px;
+    padding: 0 5px;
+}
+
+.canvas .form #id_status_part {
+    border: 10px double orange;
+    border-image: url("img/frame.png") 27 round;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.canvas .form #id_status_part table {
+    margin: auto;
+}
+
+.canvas .form #id_status_part .input_table input {
+    border-radius: 5px;
+    width: 150px;
+    margin-right: 20px;
+    height: 20px;
+    border-width: 1px;
+    padding: 0 5px;
+}
+
+.canvas .form #id_status_part .checkbox_table input {
+    margin-right: 63px;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.canvas .form #id_skills_part {
+    border: 10px double orange;
+    border-image: url("img/frame.png") 27 round;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.canvas .form #id_skills_part table {
+    margin: auto;
+}
+
+.canvas .form #id_skills_part table input {
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 20px;
+    height: 20px;
+    border-width: 1px;
+    padding: 0 5px;
+}
+
+.canvas .form #id_skills_part table td {
+    text-align: right;
+    font-size: 14px;
+}
+
+.canvas .form #id_skills_part textarea {
+    width: 920px;
+}
+
+.canvas .form #id_skills_part .skill_describe td {
+    width: 130px;
+}
+
+.canvas .form #id_desciptions_part {
+    border: 10px double orange;
+    border-image: url("img/frame.png") 27 round;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.canvas .form #id_desciptions_part table {
+    text-align: right;
+    margin: auto;
+}
+
+.canvas .form #id_desciptions_part table th {
+    width: 250px;
+    font-size: 14px;
+    padding-right: 10px;;
+}
+
+.canvas .form #id_desciptions_part table textarea {
+    width: 800px;
+}
+
+.canvas .form .form_button {
+    text-align: right;
+}
+
+.canvas .form #id_create_button {
+    background: #BEA1A5;
+    border-color: #BEA1A5;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+}

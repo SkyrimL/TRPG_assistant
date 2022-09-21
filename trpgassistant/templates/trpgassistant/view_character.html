@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Character View</title>
+        <script src="/static/trpgassistant/character_generator.js"></script>
+        <link href="../static/trpgassistant/create_cahracter.css" type="text/css" rel="stylesheet">
+    </head>
+    
+
+    <body>
+    <div class="canvas">
+        <div id="id_title_div" class='title'>
+                
+            <a>Character View</a>
+        </div>
+
+        <form method="post" class="form">
+            <!--Personal Information-->
+            <div id="id_personal_information_part">
+                <div id="id_personal_information_title" class="form-title">
+                    <a>Personal Information</a>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_name">Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="name" maxlength=50 value="{{name}}" id="id_name" readonly>
+                            </td>
+                            <td>
+                                <label for="id_birthplace">Birthplace</label>
+                            </td>
+                            <td>
+                                <input type="text" name="birthplace" maxlength=50 value="{{birthplace}}" id="id_birthplace" readonly>
+                            </td>
+                            <td>
+                                <label for="id_gender">Gender</label>
+                            </td>
+                            <td>
+                                <input type="text" name="gender" maxlength=20 value="{{gender}}" id="id_gender" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_occupation">Ocupation</label>
+                            </td>
+                            <td>
+                                <input type="text" name="occupation" maxlength=50 value="{{occupation}}" id="id_occupation" readonly>
+                            </td>
+                            <td>
+                                <label for="id_residence">Residence</label>
+                            </td>
+                            <td>
+                                <input type="text" name="residence" maxlength=50 value="{{residence}}" id="id_residence" readonly>
+                            </td>
+                            <td>
+                                <label for="id_age">Age</label>
+                            </td>
+                            <td>
+                                <input type="number" name="age" value="{{age}}" id="id_age" readonly>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Characteristics-->
+            <div id="id_characteristics_part">
+                <div id="id_characteristics_title" class="form-title">
+                    <a>Characteristics</a>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_strength">STR</label>
+                            </td>
+                            <td>
+                                <input type="number" name="strength" min="0" max="100" value="{{strength}}" id="id_strength" readonly>
+                            </td>
+                            <td>
+                                <label for="id_constitution">CON</label>
+                            </td>
+                            <td>
+                                <input type="number" name="constitution" min="0" max="100" value="{{constitution}}" id="id_constitution" readonly>
+                            </td>
+                            <td>
+                                <label for="id_dexterity">DEX</label>
+                            </td>
+                            <td>
+                                <input type="number" name="dexterity" min="0" max="100" value="{{dexterity}}" id="id_dexterity" readonly>
+                            </td>
+                            <td>
+                                <label for="id_intelligence">INT</label>
+                            </td>
+                            <td>
+                                <input type="number" name="intelligence" min="0" max="100" value="{{intelligence}}" id="id_intelligence" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_size">SIZ</label>
+                            </td>
+                            <td>
+                                <input type="number" name="size" min="0" max="100" value="{{size}}" id="id_size" readonly>
+                            </td>
+                            <td>
+                                <label for="id_power">POW</label>
+                            </td>
+                            <td>
+                                <input type="number" name="power" min="0" max="100" value="{{power}}" id="id_power" readonly>
+                            </td>
+                            <td>
+                                <label for="id_appearance">APP</label>
+                            </td>
+                            <td>
+                                <input type="number" name="appearance" min="0" max="100" value="{{appearance}}" id="id_appearance" readonly>
+                            </td>
+                            <td>
+                                <label for="id_education">EDU</label>
+                            </td>
+                            <td>
+                                <input type="number" name="education" min="0" max="100" value="{{education}}" id="id_education" readonly>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <label for="id_luck">Luck</label>
+                            </td>
+                            <td>
+                                <input type="number" name="luck" min="0" max="100" value="{{luck}}" id="id_luck" readonly>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Status-->
+            <div id="id_status_part">
+                <div id="id_status_title" class="form-title">
+                    <a>Status</a>
+                </div>
+                <table class="input_table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_max_hp">Hit Points (Max)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="max_hp" value="{{max_hp}}" id="id_max_hp" readonly>
+                            </td>
+                            <td>
+                                <label for="id_max_mp">Magic Points (Max)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="max_mp" value="{{max_mp}}" id="id_max_mp" readonly>
+                            </td>
+                            <td>
+                                <label for="id_max_sanity">Sanity (Max)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="max_sanity" value="{{max_sanity}}" id="id_max_sanity" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_curr_hp">Hit Points (Current)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="curr_hp" min="0" max="100" value="{{curr_hp}}" required id="id_curr_hp">
+                            </td>
+                            <td>
+                                <label for="id_curr_mp">Magic Points (Current)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="curr_mp" min="0" max="100" value="{{curr_mp}}" required id="id_curr_mp">
+                            </td>
+                            <td>
+                                <label for="id_curr_sanity">Sanity (Current)</label>
+                            </td>
+                            <td>
+                                <input type="number" name="curr_sanity" min="0" max="100" value="{{curr_sanity}}" required id="id_curr_sanity">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="checkbox_table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_temporary_insanity">Temporary Insanity</label>
+                            </td>
+                            <td>
+                                {% if temporary_insanity %}
+                                    <input type="checkbox" name="temporary_insanity" value=on id="id_temporary_insanity" checked>
+                                {% else %}
+                                    <input type="checkbox" name="temporary_insanity" value=on id="id_temporary_insanity">
+                                {% endif %}
+                            </td>
+                            <td>
+                                    <label for="id_indefinite_insanity">Indefinite Insanity</label>
+                            </td>
+                            <td>
+                                {% if indefinite_insanity %}
+                                    <input type="checkbox" name="indefinite_insanity" id="id_indefinite_insanity" checked>
+                                {% else %}
+                                    <input type="checkbox" name="indefinite_insanity" id="id_indefinite_insanity">
+                                {% endif %}
+                            </td>
+                            <td>
+                                <label for="id_major_wound">Major Wound</label>
+                            </td>
+                            <td>
+                                {% if major_wound %}
+                                    <input type="checkbox" name="major_wound" id="id_major_wound" checked>
+                                {% else %}
+                                    <input type="checkbox" name="major_wound" id="id_major_wound">
+                                {% endif %}
+                            </td>
+                            <td>
+                                <label for="id_unconscious">Unconscious</label>
+                            </td>
+                            <td>
+                                {% if unconscious %}
+                                    <input type="checkbox" name="unconscious" id="id_unconscious" checked>
+                                {% else %}
+                                    <input type="checkbox" name="unconscious" id="id_unconscious">
+                                {% endif %}
+                            </td>
+                            <td>
+                                <label for="id_dying">Dying</label>
+                            </td>
+                            <td>
+                                {% if dying %}
+                                    <input type="checkbox" name="dying" id="id_dying" checked>
+                                {% else %}
+                                    <input type="checkbox" name="dying" id="id_dying">
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Skills-->
+            <div id="id_skills_part">
+                <div id="id_skills_title" class="form-title">
+                    <a>Skills</a>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_accounting">Accounting (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="accounting" value="{{accounting}}" id="id_accounting" readonly>
+                            </td>
+                            <td>
+                                <label for="id_anthropology">Anthropology (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="anthropology" value="{{anthropology}}" id="id_anthropology" readonly>
+                            </td>
+                            <td>
+                                <label for="id_appraise">Appraise (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="appraise" value="{{appraise}}" id="id_appraise" readonly>
+                            </td>
+                            <td>
+                                <label for="id_archaeology">Archaeology (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="archaeology" value="{{archaeology}}" id="id_archaeology" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_art_craft">Art & Craft (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="art_craft" value="{{art_craft}}" id="id_art_craft" readonly>
+                            </td>
+                            <td>
+                                <label for="id_charm">Charm (15%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="charm" value="{{charm}}" id="id_charm" readonly>
+                            </td>
+                            <td>
+                                <label for="id_climb">Climb (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="climb" value="{{climb}}" id="id_climb" readonly>
+                            </td>
+                            <td>
+                                <label for="id_credit_rating">Credit Rating (00%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="credit_rating" value="credit_rating" id="id_credit_rating" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_cthulhu_mythos">Cthulhu Mythos (00%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="cthulhu_mythos" value="{{cthulhu_mythos}}" id="id_cthulhu_mythos" readonly>
+                            </td>
+                            <td>
+                                <label for="id_disguise">Disguise (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="disguise" value="{{disguise}}" id="id_disguise" readonly>
+                            </td>
+                            <td>
+                                <label for="id_dodge">Dodge (half DEX)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="dodge" value="{{dodge}}" id="id_dodge" readonly>
+                            </td>
+                            <td>
+                                <label for="id_drive_auto">Drive Auto (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="drive_auto" value="{{drive_auto}}" id="id_drive_auto" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_elec_repair">Elec. Repair (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="elec_repair" value="{{elec_repair}}" id="id_elec_repair" readonly>
+                            </td>
+                            <td>
+                                <label for="id_fast_talk">Fast Talk (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="fast_talk" value="{{fast_talk}}" id="id_fast_talk" readonly>
+                            </td>
+                            <td>
+                                <label for="id_fighting">Fighting (25%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="fighting" value="{{fighting}}" id="id_fighting" readonly>
+                            </td>
+                            <td>
+                                <label for="id_firearms">Firearms (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="firearms" value="{{firearms}}" id="id_firearms" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_first_aid">First Aid (30%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="first_aid" value="{{first_aid}}" id="id_first_aid" readonly>
+                            </td>
+                            <td>
+                                <label for="id_history">History (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="history" value="{{history}}" required id="id_history" readonly>
+                            </td>
+                            <td>
+                                <label for="id_intimidate">Intimidate (15%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="intimidate" value="{{intimidate}}" id="id_intimidate" readonly>
+                            </td>
+                            <td>
+                                <label for="id_jump">Jump (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="jump" value="{{jump}}" id="id_jump" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_language">Language (EDU)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="language" value="{{language}}" id="id_language" readonly>
+                            </td>
+                            <td>
+                                <label for="id_law">Law (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="law" value="{{law}}" id="id_law" readonly>
+                            </td>
+                            <td>
+                                <label for="id_library">Library Use (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="library" value="{{library}}" id="id_library" readonly>
+                            </td>
+                            <td>
+                                <label for="id_listen">Listen (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="listen" value="{{listen}}" id="id_listen" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_locksmith">Locksmith (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="locksmith" value="{{locksmith}}" required id="id_locksmith" readonly>
+                            </td>
+                            <td>
+                                <label for="id_mech_repair">Mech. Repair (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="mech_repair" value="{{mech_repair}}" id="id_mech_repair" readonly>
+                            </td>
+                            <td>
+                                <label for="id_medicine">Medicine (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="medicine" value="{{mecidine}}" id="id_medicine" readonly>
+                            </td>
+                            <td>
+                                <label for="id_natural_world">Natural World (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="natural_world" value="{{natural_world}}" id="id_natural_world" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_navigate">Navigate (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="navigate" value="{{navigate}}" id="id_navigate" readonly>
+                            </td>
+                            <td>
+                                <label for="id_occult">Occult (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="occult" value="{{occult}}" id="id_occult" readonly>
+                            </td>
+                            <td>
+                                <label for="id_persuade">Persuade (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="persuade" value="{{persuade}}" id="id_persuade" readonly>
+                            </td>
+                            <td>
+                                <label for="id_pilot">Pilot (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="pilot" value="{{pilot}}" id="id_pilot" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_psychoanalysis">Psychoanalysis (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="psychoanalysis" value="{{psychoanalysis}}" id="id_psychoanalysis" readonly>
+                            </td>
+                            <td>
+                                <label for="id_psychology">Psychology (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="psychology" value="{{psychology}}" id="id_psychology" readonly>
+                            </td>
+                            <td>
+                                <label for="id_ride">Ride (05%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="ride" value="{{ride}}" id="id_ride" readonly>
+                            </td>
+                            <td>
+                                <label for="id_science">Science (01%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="science" value="{{science}}" id="id_science" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_sleight_of_hand">Sleight of Hand (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="sleight_of_hand" value="{{sleight_of_hand}}" id="id_sleight_of_hand" readonly>
+                            </td>
+                            <td>
+                                <label for="id_spot_hidden">Spot Hidden (25%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="spot_hidden" value="{{spot_hidden}}" id="id_spot_hidden" readonly>
+                            </td>
+                            <td>
+                                <label for="id_stealth">Stealth (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="stealth" value="{{stealth}}" id="id_stealth" readonly>
+                            </td>
+                            <td>
+                                <label for="id_survival">Survival (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="survival" value="{{survival}}" id="id_survival" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="id_swim">Swim (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="swim" value="{{swim}}" id="id_swim" readonly>
+                            </td>
+                            <td>
+                                <label for="id_throw">Throw (20%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="throw" value="{{throw}}" id="id_throw" readonly>
+                            </td>
+                            <td>
+                                <label for="id_track">Track (10%)</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="track" value="{{track}}" id="id_track" readonly>
+                            </td>
+                            <td>
+                                <label for="id_other">Other</label>
+                            </td>
+                            <td>
+                                <input type="number" class="skill" name="other" value="{{other}}" id="id_other" readonly>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="id_describe">Describe</label>
+                            </td>
+                            <td>
+                                <textarea name="describe" maxlength="200" id="id_describe" readonly>{{describe}}</textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Description-->
+            <div id="id_desciptions_part">
+                <div id="id_descriptions_title" class="form-title">
+                    <a>Descriptions</a>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <label for="id_my_story">My Story</label>
+                            </th>
+                            <td>
+                                <textarea name="my_story" maxlength=200 id="id_my_story" readonly>{{my_story}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_wealth">Wealth</label>
+                            </th>
+                            <td>
+                                <textarea name="wealth" maxlength=200 id="id_wealth" readonly>{{wealth}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_items">Items</label>
+                            </th>
+                            <td>
+                                <textarea name="items" maxlength=200 id="id_items" readonly>{{items}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_personal_description">Personal Description</label>
+                            </th>
+                            <td>
+                                <textarea name="personal_description" maxlength=200 id="id_personal_description" readonly>{{personal_description}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_ideology_beliefs">Ideology Beliefs</label>
+                            </th>
+                            <td>
+                                <textarea name="ideology_beliefs" maxlength=200 id="id_ideology_beliefs" readonly>{{ideology_beliefs}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_significant_people">Significant People</label>
+                            </th>
+                            <td>
+                                <textarea name="significant_people" maxlength=200 id="id_significant_people" readonly>{{significant_people}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_meaningful_locations">Meaningful Locations</label>
+                            </th>
+                            <td>
+                                <textarea name="meaningful_locations" maxlength=200 id="id_meaningful_locations" readonly>{{meaningful_locations}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_treasured_possessions">Treasured Possessions</label>
+                            </th>
+                            <td>
+                                <textarea name="treasured_possessions" maxlength=200 id="id_treasured_possessions" readonly>{{treasured_possessions}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_traits">Traits</label>
+                            </th>
+                            <td>
+                                <textarea name="traits" maxlength=200 id="id_traits" readonly>{{traits}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_injuries_scars">Injuries Scars</label>
+                            </th>
+                            <td>
+                                <textarea name="injuries_scars" maxlength=200 id="id_injuries_scars" readonly>{{injuries_scars}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_phobias_manias">Phobias Manias</label>
+                            </th>
+                            <td>
+                                <textarea name="phobias_manias" maxlength=200 id="id_phobias_manias" readonly>{{phobias_manias}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_arcane_spells">Arcane Spells</label>
+                            </th>
+                            <td>
+                                <textarea name="arcane_spells" maxlength=200 id="id_arcane_spells" readonly>{{arcane_spells}}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="id_encounters_with_strange_entities">Encounters with Strange Entities</label>
+                            </th>
+                            <td>
+                                <textarea name="encounters_with_strange_entities" maxlength=200 id="id_encounters_with_strange_entities" readonly>{{encounters_with_strange_entities}}</textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% csrf_token %}
+            <div class="form_button">
+            <button type="submit", id="id_save_button">Save Changes</button>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>

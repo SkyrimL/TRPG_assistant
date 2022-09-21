@@ -1,0 +1,63 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url("https://cdn.pixabay.com/photo/2018/02/26/16/58/astronomy-3183482_960_720.jpg");
+    background-size: cover;
+}
+
+main {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.col-4 {
+    color: #ced4da;
+    text-shadow: blanchedalmond;
+    font-style: normal;
+    font-family: "Great Vibes", cursive;
+}
+
+.btn {
+    font-family: "Great Vibes", cursive;
+    height: 40px;
+}
+
+.btn.btn-dark.btn-lg {
+    background-color: rgb(109, 18, 117);
+}
+
+.btn.btn-secondary.btn-lg {
+    background-color: #65aa80b4;
+}
+
+.btn.btn-danger.btn-lg {
+    background-color: rgba(168, 35, 20, 0.726);
+}
+
+.btn.btn-warning.btn-lg {
+    background-color: rgb(236, 178, 127);
+}
+
+table {
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    color: #ced4da;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input {
+    
+    background-color: rebeccapurple;
+    color: #e0e595;
+}
+
+#id_title_div {
+    color: white;
+    
+}

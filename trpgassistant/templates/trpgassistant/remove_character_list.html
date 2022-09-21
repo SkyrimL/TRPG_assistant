@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Remove Your Characters form the Game</title>
+        <link  rel="stylesheet" type="text/css" href="static/trpgassistant/TRPG.css">
+    </head>
+
+    <body>  
+        <div class="containerr"> 
+            <div id="id_title_div" class='titlee'>
+                <div class='content'>
+                    <a>Remove Your Characters from the Game</a>
+                </div>
+            </div>
+
+            <form method="post" action="{% url 'remove_character' %}">
+                {% for character in characters %}
+                    {% if character.PL.id == user.id and character.in_game == True %}
+                        <div id="id_character_div_{{character.id}}" class='loginn'>
+                            <button class='button' name='button' value='{{character.id}}'>Character ID: {{character.id}}    Character Name: {{character.name}}</button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% csrf_token %}
+            </form>
+        </div>
+
+    </body>
+</html>

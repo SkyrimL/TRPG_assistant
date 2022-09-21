@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Character Creation</title>
+    <script src="/static/trpgassistant/character_generator.js"></script>
+    <link href="/static/trpgassistant/create_cahracter.css" type="text/css" rel="stylesheet">
+</head>
+
+
+
+<body>
+<div class="canvas">
+    <div id="id_title_div" class='title'>
+
+        <a>Character Creation</a>
+
+        <div class="button">
+            <button id="id_random_button" onclick="random_generate()">Random Characteristics</button>
+        </div>
+    </div>
+
+    <form method="post" class="form">
+        <!--Personal Information-->
+        <input type="reset" class="input" value="Reset">
+        <div id="id_personal_information_part">
+            <div id="id_personal_information_title" class="form-title">
+                <a>Personal Information</a>
+            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_name">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" maxlength=50 required id="id_name">
+                    </td>
+                    <td>
+                        <label for="id_birthplace">Birthplace</label>
+                    </td>
+                    <td>
+                        <input type="text" name="birthplace" maxlength=50 required id="id_birthplace">
+                    </td>
+                    <td>
+                        <label for="id_gender">Gender</label>
+                    </td>
+                    <td>
+                        <input type="text" name="gender" maxlength=20 required id="id_gender">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_occupation">Ocupation</label>
+                    </td>
+                    <td>
+                        <input type="text" name="occupation" maxlength=50 required id="id_occupation">
+                    </td>
+                    <td>
+                        <label for="id_residence">Residence</label>
+                    </td>
+                    <td>
+                        <input type="text" name="residence" maxlength=50 required id="id_residence">
+                    </td>
+                    <td>
+                        <label for="id_age">Age</label>
+                    </td>
+                    <td>
+                        <input type="number" name="age" required id="id_age">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Characteristics-->
+        <div id="id_characteristics_part">
+            <div id="id_characteristics_title" class="form-title">
+                <a>Characteristics</a>
+            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_strength">STR</label>
+                    </td>
+                    <td>
+                        <input type="number" name="strength" min="0" max="100" value="0" required id="id_strength"
+                               readonly>
+                    </td>
+                    <td>
+                        <label for="id_constitution">CON</label>
+                    </td>
+                    <td>
+                        <input type="number" name="constitution" min="0" max="100" value="0" required
+                               id="id_constitution" readonly>
+                    </td>
+                    <td>
+                        <label for="id_dexterity">DEX</label>
+                    </td>
+                    <td>
+                        <input type="number" name="dexterity" min="0" max="100" value="0" required id="id_dexterity"
+                               readonly>
+                    </td>
+                    <td>
+                        <label for="id_intelligence">INT</label>
+                    </td>
+                    <td>
+                        <input type="number" name="intelligence" min="0" max="100" value="0" required
+                               id="id_intelligence" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_size">SIZ</label>
+                    </td>
+                    <td>
+                        <input type="number" name="size" min="0" max="100" value="0" required id="id_size" readonly>
+                    </td>
+                    <td>
+                        <label for="id_power">POW</label>
+                    </td>
+                    <td>
+                        <input type="number" name="power" min="0" max="100" value="0" required id="id_power" readonly>
+                    </td>
+                    <td>
+                        <label for="id_appearance">APP</label>
+                    </td>
+                    <td>
+                        <input type="number" name="appearance" min="0" max="100" value="0" required id="id_appearance"
+                               readonly>
+                    </td>
+                    <td>
+                        <label for="id_education">EDU</label>
+                    </td>
+                    <td>
+                        <input type="number" name="education" min="0" max="100" value="0" required id="id_education"
+                               readonly>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="id_luck">Luck</label>
+                    </td>
+                    <td>
+                        <input type="number" name="luck" min="0" max="100" value="0" required id="id_luck" readonly>
+                    </td>
+                    <td>
+                        <label for="id_total">Total</label>
+                    </td>
+                    <td>
+                        <input type="number" name="total" min="0" max="1000" value="0" required id="id_total" readonly>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Status-->
+        <div id="id_status_part">
+            <div id="id_status_title" class="form-title">
+                <a>Status</a>
+            </div>
+            <table class="input_table">
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_max_hp">Hit Points (Max)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="max_hp" min="0" max="100" value="0" required id="id_max_hp" readonly>
+                    </td>
+                    <td>
+                        <label for="id_max_mp">Magic Points (Max)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="max_mp" min="0" max="100" value="0" required id="id_max_mp" readonly>
+                    </td>
+                    <td>
+                        <label for="id_max_sanity">Sanity (Max)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="max_sanity" min="0" max="100" value="0" required id="id_max_sanity"
+                               readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_curr_hp">Hit Points (Current)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="curr_hp" min="0" max="100" value="0" required id="id_curr_hp">
+                    </td>
+                    <td>
+                        <label for="id_curr_mp">Magic Points (Current)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="curr_mp" min="0" max="100" value="0" required id="id_curr_mp">
+                    </td>
+                    <td>
+                        <label for="id_curr_sanity">Sanity (Current)</label>
+                    </td>
+                    <td>
+                        <input type="number" name="curr_sanity" min="0" max="100" value="0" required
+                               id="id_curr_sanity">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="checkbox_table">
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_temporary_insanity">Temporary Insanity</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="temporary_insanity" id="id_temporary_insanity">
+                    </td>
+                    <td>
+                        <label for="id_indefinite_insanity">Indefinite Insanity</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="indefinite_insanity" id="id_indefinite_insanity">
+                    </td>
+                    <td>
+                        <label for="id_major_wound">Major Wound</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="major_wound" id="id_major_wound">
+                    </td>
+                    <td>
+                        <label for="id_unconscious">Unconscious</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="unconscious" id="id_unconscious">
+                    </td>
+                    <td>
+                        <label for="id_dying">Dying</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="dying" id="id_dying">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Skills-->
+        <div id="id_skills_part">
+            <div id="id_skills_title" class="form-title">
+                <a>Skills</a>
+            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_total_skill_points">Total Skill Points</label>
+                    </td>
+                    <td>
+                        <input type="number" name="total_skill_points" min="0" max="1000" value="0" required
+                               id="id_total_skill_points" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_available_skill_points">Available Skill Points</label>
+                    </td>
+                    <td>
+                        <input type="number" name="available_skill_points" min="0" max="1000" value="0" required
+                               id="id_available_skill_points" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_accounting">Accounting (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="accounting" min="0" max="100" value="5" required
+                               id="id_accounting" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_anthropology">Anthropology (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="anthropology" min="0" max="100" value="1" required
+                               id="id_anthropology" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_appraise">Appraise (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="appraise" min="0" max="100" value="5" required
+                               id="id_appraise" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_archaeology">Archaeology (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="archaeology" min="0" max="100" value="1" required
+                               id="id_archaeology" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_art_craft">Art & Craft (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="art_craft" min="0" max="100" value="5" required
+                               id="id_art_craft" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_charm">Charm (15%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="charm" min="0" max="100" value="15" required
+                               id="id_charm" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_climb">Climb (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="climb" min="0" max="100" value="20" required
+                               id="id_climb" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_credit_rating">Credit Rating (00%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="credit_rating" min="0" max="100" value="0" required
+                               id="id_credit_rating" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_cthulhu_mythos">Cthulhu Mythos (00%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="cthulhu_mythos" min="0" max="100" value="0" required
+                               id="id_cthulhu_mythos" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_disguise">Disguise (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="disguise" min="0" max="100" value="5" required
+                               id="id_disguise" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_dodge">Dodge (half DEX)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="dodge" min="0" max="100" value="0" required
+                               id="id_dodge" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_drive_auto">Drive Auto (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="drive_auto" min="0" max="100" value="20" required
+                               id="id_drive_auto" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_elec_repair">Elec. Repair (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="elec_repair" min="0" max="100" value="10" required
+                               id="id_elec_repair" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_fast_talk">Fast Talk (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="fast_talk" min="0" max="100" value="5" required
+                               id="id_fast_talk" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_fighting">Fighting (25%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="fighting" min="0" max="100" value="25" required
+                               id="id_fighting" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_firearms">Firearms (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="firearms" min="0" max="100" value="20" required
+                               id="id_firearms" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_first_aid">First Aid (30%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="first_aid" min="0" max="100" value="30" required
+                               id="id_first_aid" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_history">History (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="history" min="0" max="100" value="5" required
+                               id="id_history" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_intimidate">Intimidate (15%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="intimidate" min="0" max="100" value="15" required
+                               id="id_intimidate" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_jump">Jump (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="jump" min="0" max="100" value="20" required
+                               id="id_jump" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_language">Language (EDU)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="language" min="0" max="100" value="0" required
+                               id="id_language" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_law">Law (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="law" min="0" max="100" value="5" required id="id_law"
+                               onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_library">Library Use (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="library" min="0" max="100" value="20" required
+                               id="id_library" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_listen">Listen (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="listen" min="0" max="100" value="20" required
+                               id="id_listen" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_locksmith">Locksmith (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="locksmith" min="0" max="100" value="1" required
+                               id="id_locksmith" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_mech_repair">Mech. Repair (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="mech_repair" min="0" max="100" value="10" required
+                               id="id_mech_repair" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_medicine">Medicine (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="medicine" min="0" max="100" value="1" required
+                               id="id_medicine" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_natural_world">Natural World (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="natural_world" min="0" max="100" value="10" required
+                               id="id_natural_world" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_navigate">Navigate (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="navigate" min="0" max="100" value="10" required
+                               id="id_navigate" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_occult">Occult (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="occult" min="0" max="100" value="5" required
+                               id="id_occult" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_persuade">Persuade (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="persuade" min="0" max="100" value="10" required
+                               id="id_persuade" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_pilot">Pilot (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="pilot" min="0" max="100" value="1" required
+                               id="id_pilot" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_psychoanalysis">Psychoanalysis (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="psychoanalysis" min="0" max="100" value="1" required
+                               id="id_psychoanalysis" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_psychology">Psychology (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="psychology" min="0" max="100" value="10" required
+                               id="id_psychology" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_ride">Ride (05%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="ride" min="0" max="100" value="5" required id="id_ride"
+                               onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_science">Science (01%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="science" min="0" max="100" value="1" required
+                               id="id_science" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_sleight_of_hand">Sleight of Hand (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="sleight_of_hand" min="0" max="100" value="10" required
+                               id="id_sleight_of_hand" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_spot_hidden">Spot Hidden (25%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="spot_hidden" min="0" max="100" value="25" required
+                               id="id_spot_hidden" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_stealth">Stealth (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="stealth" min="0" max="100" value="20" required
+                               id="id_stealth" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_survival">Survival (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="survival" min="0" max="100" value="10" required
+                               id="id_survival" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="id_swim">Swim (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="swim" min="0" max="100" value="20" required
+                               id="id_swim" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_throw">Throw (20%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="throw" min="0" max="100" value="20" required
+                               id="id_throw" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_track">Track (10%)</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="track" min="0" max="100" value="10" required
+                               id="id_track" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                    <td>
+                        <label for="id_other">Other</label>
+                    </td>
+                    <td>
+                        <input type="number" class="skill" name="other" min="0" max="100" value="0" required
+                               id="id_other" onchange="calculate_avaliable_skill_points()">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="skill_describe">
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="id_describe">Describe</label>
+                    </td>
+                    <td>
+                        <textarea name="describe" maxlength="200" id="id_describe"></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Description-->
+        <div id="id_desciptions_part">
+            <div id="id_descriptions_title" class="form-title">
+                <a>Descriptions</a>
+            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <th>
+                        <label for="id_my_story">My Story</label>
+                    </th>
+                    <td>
+                        <textarea name="my_story" maxlength=200 required id="id_my_story"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_wealth">Wealth</label>
+                    </th>
+                    <td>
+                        <textarea name="wealth" maxlength=200 required id="id_wealth"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_items">Items</label>
+                    </th>
+                    <td>
+                        <textarea name="items" maxlength=200 required id="id_items"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_personal_description">Personal Description</label>
+                    </th>
+                    <td>
+                        <textarea name="personal_description" maxlength=200 required
+                                  id="id_personal_description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_ideology_beliefs">Ideology Beliefs</label>
+                    </th>
+                    <td>
+                        <textarea name="ideology_beliefs" maxlength=200 required id="id_ideology_beliefs"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_significant_people">Significant People</label>
+                    </th>
+                    <td>
+                        <textarea name="significant_people" maxlength=200 required
+                                  id="id_significant_people"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_meaningful_locations">Meaningful Locations</label>
+                    </th>
+                    <td>
+                        <textarea name="meaningful_locations" maxlength=200 required
+                                  id="id_meaningful_locations"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_treasured_possessions">Treasured Possessions</label>
+                    </th>
+                    <td>
+                        <textarea name="treasured_possessions" maxlength=200 required
+                                  id="id_treasured_possessions"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_traits">Traits</label>
+                    </th>
+                    <td>
+                        <textarea name="traits" maxlength=200 required id="id_traits"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_injuries_scars">Injuries Scars</label>
+                    </th>
+                    <td>
+                        <textarea name="injuries_scars" maxlength=200 required id="id_injuries_scars"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_phobias_manias">Phobias Manias</label>
+                    </th>
+                    <td>
+                        <textarea name="phobias_manias" maxlength=200 required id="id_phobias_manias"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_arcane_spells">Arcane Spells</label>
+                    </th>
+                    <td>
+                        <textarea name="arcane_spells" maxlength=200 required id="id_arcane_spells"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="id_encounters_with_strange_entities">Encounters with Strange Entities</label>
+                    </th>
+                    <td>
+                        <textarea name="encounters_with_strange_entities" maxlength=200 required
+                                  id="id_encounters_with_strange_entities"></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {% csrf_token %}
+        <div class="form_button">
+            <button type="submit" , id="id_create_button">Create Character</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

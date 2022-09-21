@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <title>Add Your Characters to the Game</title>
+        <link  rel="stylesheet" type="text/css" href="static/trpgassistant/TRPG.css">
+    </head>
+
+    <body>  
+        <div class="containerr"> 
+        <div id="id_title_div" class='titlee'>
+            <div class='content'>
+                <a>Add Your Characters to the Game</a>
+            </div>
+        </div>
+
+        <form method="post" action="{% url 'add_character' %}">
+            {% for character in characters %}
+                {% if character.PL.id == user.id and character.in_game == False %}
+                    <div id="id_character_div_{{character.id}}" class='loginn'>
+                        <button class='button' name='button' value='{{character.id}}'>Character ID: {{character.id}}    Character Name: {{character.name}}</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% csrf_token %}
+        </form>
+    </div>
+
+    </body>
+</html>

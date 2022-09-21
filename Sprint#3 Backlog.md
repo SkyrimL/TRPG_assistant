@@ -1,0 +1,12 @@
+- Basic Functions
+  - Unfinished backlogs in Sprint#2
+  - Upload images to the canvas
+  - Draw functions on canvas
+  - Roll dices and record results in log window
+  - Dragable icons
+  - Buttons to jump to other pages
+  - Exception and error handler in each page
+  - Better GUI design
+- Challenge Functions
+  - Voice Chat
+  - Create, join, save game functions
